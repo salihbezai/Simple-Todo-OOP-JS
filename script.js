@@ -8,10 +8,15 @@ let todoArr = []
 submit.addEventListener('click',function(e){
     e.preventDefault()
     let id = parseInt(Math.random() *1000) 
-    const todo = new Todo(id,input.value)
-    todoArr=[...todoArr,todo]
-    Ui.displayTodo()
-    Ui.clearInput()
+    if(input.value){
+        const todo =  new Todo(id,input.value)
+        todoArr=[...todoArr,todo]
+        Ui.displayTodo()
+        Ui.clearInput()
+    }else{
+        return;
+    }
+
 })
 
 
