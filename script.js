@@ -1,7 +1,7 @@
 const submit = document.querySelector('#submit')
 const input = document.querySelector('input')
 const lists = document.querySelector('.lists')
-
+const todoElement = document.querySelector('.todo')
 
 let todoArr = []
 
@@ -44,8 +44,13 @@ class Ui{
         Array.from(lists.children).map((todo)=>{
             const removeBtn = todo.querySelector('.remove')
             removeBtn.addEventListener('click',function(){
-                removeBtn.parentElement.remove()
-                Ui.removeTOdo(removeBtn.dataset.id)
+                todo.style.opacity = 0
+                if(todo.style.opacity = 0){
+                    removeBtn.parentElement.remove()
+                    Ui.removeTOdo(removeBtn.dataset.id)
+                } 
+        
+              
             })
     
             
@@ -57,8 +62,8 @@ class Ui{
        return item.id !== parseInt(id) 
 
        })
-       todoArr = newTodoArr
-
+      
+       
     }
 
     static clearInput (){
